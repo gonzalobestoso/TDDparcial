@@ -14,18 +14,26 @@ public class BowlingGameTest {
 	}
 	@Test
 	public void TirarNada() {
-		 juego = new BowlingGame();
+		 
 	TirarVarios(0,20);
 		assertEquals(0,juego.getScore());
 	}
 
 	@Test
 	public void TiraUnoSolo() {
-		juego = new BowlingGame();
+		
 		TirarVarios(1,20);
 		assertEquals(20,juego.getScore());
 	}
 
+	public void TirarVarios(int pinos, int tiros){
+		for (int i=0; i<tiros; i++){
+			juego.tiros(pinos);
+			
+			
+		}
+	}
+	
 	@Test
 	public void HacerSpare(){
 		juego.tiros(5);
@@ -35,13 +43,24 @@ public class BowlingGameTest {
 		assertEquals(16, juego.getScore());
 	}
 	
-	
-	public void TirarVarios(int pinos, int tiros){
-		for (int i=0; i<tiros; i++){
-			juego.tiros(pinos);
-			
-			
-		}
+	@Test
+	public void HacerStrike(){
+		juego.tiros(10);
+		juego.tiros(4);
+		juego.tiros(3);
+		TirarVarios(0,16);
+		assertEquals(24, juego.getScore());
 	}
+	@Test
+	
+		public void JuegoPerfecto(){
+			TirarVarios(10,12);
+			assertEquals(300,juego.getScore());
+		}
+		
+		
+	
+	
+	
 }
 
