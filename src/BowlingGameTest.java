@@ -15,5 +15,4 @@ public class BowlingGameTest {
 		assertEquals(0,juego.getScore());
 	}
 
-	
 }
